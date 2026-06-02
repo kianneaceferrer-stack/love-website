@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  height:100vh;
+  background: radial-gradient(circle, #2a0033, #000);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  overflow:hidden;
+}
+
+/* MAIN CARD */
+.card{
+  width:90%;
+  max-width:420px;
+  text-align:center;
+  padding:20px;
+}
+
+/* TITLE */
+h1{
+  color:#ff4da6;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  font-size:12px;
+  opacity:0.7;
+  margin-bottom:20px;
+}
+
+/* LOVE BOX */
+.box{
+  background: rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.2);
+}
+
+/* BUTTON */
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#ff4da6;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* HIDDEN SURPRISE */
+.surprise{
+  display:none;
+  margin-top:20px;
+  animation: fade 1.5s ease;
+}
+
+.surprise img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #ff4da6;
+  margin-top:10px;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:scale(0.8);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* HEARTS */
+.heart{
+  position:absolute;
+  color:pink;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1>For You 💖</h1>
+  <div class="subtitle">A love letter just for you</div>
+
+  <div class="box">
+    <p>Hi Baby,<br><br>
+    I just want to tell you something important.<br><br>
+
+    You became my happiness, my peace, and my favorite person.<br><br>
+
+    I will always choose you, care for you, and love you no matter what.<br><br>
+
+    ❤️</p>
+
+    <button onclick="showSurprise()">Click Surprise 🎁</button>
+
+    <!-- SURPRISE CONTENT -->
+    <div class="surprise" id="surprise">
+
+      <img src="love.jpg" alt="us">
+
+      <h2 style="margin-top:15px;">❤️ I LOVE YOU SO MUCH ❤️</h2>
+      <p>You are my forever person.</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showSurprise(){
+  document.getElementById("surprise").style.display = "block";
+}
+
+/* floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.classList.add("heart");
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = Math.random()*20 + 10 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
